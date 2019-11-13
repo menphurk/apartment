@@ -187,10 +187,10 @@
               <div class="w-body-a">
                 <ul class="list-unstyled">
                   <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">หน้าแรก</a>
+                    <i class="fa fa-angle-right"></i> <a href="<?php echo base_url();?>">หน้าแรก</a>
                   </li>
                   <li class="item-list-a">
-                    <i class="fa fa-angle-right"></i> <a href="#">ห้องพักของเรา</a>
+                    <i class="fa fa-angle-right"></i> <a href="<?php echo base_url();?>room">ห้องพักของเรา</a>
                   </li>
                   <li class="item-list-a">
                     <i class="fa fa-angle-right"></i> <a href="#">สิ่งอำนวยความสะดวก</a>

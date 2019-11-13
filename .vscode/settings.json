@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "db_apartment",
+            "dialect": "MySQL",
+            "name": "apartment",
+            "password": "root",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}
