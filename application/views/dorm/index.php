@@ -14,23 +14,23 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>ชื่อ-นามสกุล</th>
-                                <th>หมายเลขบัตรประชาชน</th>
+                                <th>ชือหอพัก</th>
+                                <th>รูปหอพัก</th>
                                 <th>จัดการ</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            if ($members >= 1) {
-                                foreach ($members as $key => $member) {
+                            if ($dorms >= 1) {
+                                foreach ($dorms as $key => $dorm) {
                                     echo "<tr>";
-                                    echo "<td>" . $member->id . "</td>";
-                                    echo "<td>" . $member->titlename . $member->first_name . " " . $member->last_name . "</td>";
-                                    echo "<td>" . $member->idcard . "</td>";
+                                    echo "<td>" . $dorm->id . "</td>";
+                                    echo "<td>" . $dorm->name . "</td>";
+                                    echo "<td><img src='" . base_url() . "upload/dorm/" . $dorm->images . "' width='50%' class='img-responsive'></td>";
                                     echo "<td>
-                                            <button class='btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='" . base_url() . "member/show/" . $member->id . "'><i class='notika-icon notika-eye'></i></button>
-                                            <button class='btn btn-lightgreen lightgreen-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='" . base_url() . "member/edit/" . $member->id . "'><i class='notika-icon notika-edit'></i></button>
-                                            <button class='btn btn-danger primary-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='" . base_url() . "member/delete/" . $member->id . "'><i class='notika-icon notika-trash'></i></button>
+                                            <button class='btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='" . base_url() . "dorm/show/" . $dorm->id . "'><i class='notika-icon notika-eye'></i></button>
+                                            <button class='btn btn-lightgreen lightgreen-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='" . base_url() . "dorm/edit/" . $dorm->id . "'><i class='notika-icon notika-edit'></i></button>
+                                            <button class='btn btn-danger primary-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='" . base_url() . "dorm/delete/" . $dorm->id . "'><i class='notika-icon notika-trash'></i></button>
                                           </td>";
                                     echo "</tr>";
                                 }

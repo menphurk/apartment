@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -81,6 +81,17 @@ $route['user/edit'] = 'user/edit/$1';
 $route['user/show'] = 'user/show/$1';
 $route['user/update'] = 'user/update/$1';
 $route['user/delete'] = 'user/delete/$1';
+
+
+//Dorm//
+$route['dorm'] = 'dorm/index';
+$route['dorm/(:num)'] = 'dorm';
+$route['dorm/create'] = 'dorm/create';
+$route['dorm/save'] = 'dorm/save';
+$route['dorm/edit'] = 'dorm/edit/$1';
+$route['dorm/show'] = 'dorm/show/$1';
+$route['dorm/update'] = 'dorm/update/$1';
+$route['dorm/delete'] = 'dorm/delete/$1';
 
 $route['404_override'] = 'errors/index';
 $route['translate_uri_dashes'] = FALSE;
