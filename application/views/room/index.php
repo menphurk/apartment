@@ -11,40 +11,25 @@
                         ?>
                         <div class="bsc-tbl">
                             <table class="table table-sc-ex">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>รหัสห้อง</th>
-                                        <th>ชื่อห้อง</th>
-                                        <th>จัดการ</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
                                     <?php
                                     if($rooms >= 1){
-                                        foreach ($rooms as $key => $room) {
                                         echo "<tr>";
-                                            echo "<td>".$room->id."</td>";
-                                            echo "<td>".$room->code_place_room."".$room->code_floor_room."</td>";
-                                            echo "<td>".$room->name."</td>";
-                                            echo "<td>
-                                                <button class='btn btn-primary primary-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='".base_url()."room/show/".$room->id."'><i class='notika-icon notika-eye'></i></button>
-                                                <button class='btn btn-lightgreen lightgreen-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='".base_url()."room/edit/".$room->id."'><i class='notika-icon notika-edit'></i></button>
-                                                <button class='btn btn-danger primary-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='".base_url()."room/delete/".$room->id."'><i class='notika-icon notika-trash'></i></button>
-                                            </td>";
-                                        echo "</tr>";
+                                        foreach ($rooms as $key => $room) {
+                                            if($room->status == 0){
+                                                $status = "ว่าง";
+                                            }else if($room->status == 1){
+                                                $status = "จองแล้ว";
+                                            }
+                                        echo "<td><div class='box'>".$room->code_place_room.$room->code_floor_room."<br>".$room->name."<br>".$status."</div></td>";
                                         }
+                                        echo "</tr>";
                                     }else{
                                         echo "";
                                     }
                                     ?>
                                 </tbody>
                             </table>
-                            <div class="pagination-inbox">
-                                <ul class="wizard-nav-ac">
-                                    <?php echo $links; ?>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>

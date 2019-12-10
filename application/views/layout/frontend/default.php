@@ -18,6 +18,7 @@
     <link href="<?php echo base_url();?>/assets/frontend/css/style.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Niramit&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <div class="click-closed"></div>

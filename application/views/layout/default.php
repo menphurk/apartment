@@ -46,6 +46,16 @@
 
     <link href="https://fonts.googleapis.com/css?family=Niramit&display=swap" rel="stylesheet">
 
+    <style> 
+
+.box { 
+    padding: 30px;
+    border: 2.5px solid cadetblue;
+    text-align: center;
+    font-size: 20px;
+}
+</style>
+
 </head>
 
 <body>
