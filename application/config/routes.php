@@ -93,5 +93,8 @@ $route['dorm/show'] = 'dorm/show/$1';
 $route['dorm/update'] = 'dorm/update/$1';
 $route['dorm/delete'] = 'dorm/delete/$1';
 
+//Migrate//
+$route['migrate'] = 'migrate/index';
+
 $route['404_override'] = 'errors/index';
 $route['translate_uri_dashes'] = FALSE;
