@@ -10,6 +10,7 @@
                         echo $this->session->flashdata('flash_message');
                         ?>
                         <div class="bsc-tbl">
+                            <p>จองห้องพัก</p>
                             <table class="table table-sc-ex">
                                 <tbody>
                                     <?php
