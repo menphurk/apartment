@@ -3,7 +3,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="normal-table-list">
                 <div class="basic-tb-hd">
-                    <h2>สร้างผู้เช่า</h2>
+                    <h2><?php echo $title; ?></h2>
                 </div>
                 <?php
                 if (validation_errors()) { // ถ้ามีเงื่อนไขหนึ่งใดไม่ผ่าน ให้แสดง ข้อความ error ตำแหน่งนี้

@@ -46,22 +46,21 @@
 
     <link href="https://fonts.googleapis.com/css?family=Niramit&display=swap" rel="stylesheet">
 
-    <style> 
-
-.box { 
-    padding: 30px;
-    border: 2.5px solid cadetblue;
-    text-align: center;
-    font-size: 20px;
-}
-</style>
+    <style>
+        .box {
+            padding: 30px;
+            border: 2.5px solid cadetblue;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
 
 </head>
 
 <body>
     <?php
     if ($this->session->userdata('login_id')) {
-        ?>
+    ?>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -332,9 +331,11 @@
                             </div>
                             <div id="Finances" class="tab-pane notika-tab-menu-bg animated flipInX">
                                 <ul class="notika-main-menu-dropdown">
-                                    <li><a href="view-email.html">ใบแจ้งหนี้</a>
+                                    <li><a href="#">ใบแจ้งหนี้</a>
                                     </li>
-                                    <li><a href="compose-email.html">มิเตอร์ไฟและน้ำ</a>
+                                    <li><a href="#">มิเตอร์ไฟและน้ำ</a>
+                                    </li>
+                                    <li><a href="<?php echo base_url(); ?>promise/index">รายการสัญญาเช่า</a>
                                     </li>
                                 </ul>
                             </div>

@@ -93,6 +93,16 @@ $route['dorm/show'] = 'dorm/show/$1';
 $route['dorm/update'] = 'dorm/update/$1';
 $route['dorm/delete'] = 'dorm/delete/$1';
 
+//Promise//
+$route['promise'] = 'promise/index';
+$route['promise/(:num)'] = 'promise';
+$route['promise/create'] = 'promise/create';
+$route['promise/save'] = 'promise/save';
+$route['promise/edit'] = 'promise/edit/$1';
+$route['promise/show'] = 'promise/show/$1';
+$route['promise/update'] = 'promise/update/$1';
+$route['promise/delete'] = 'promise/delete/$1';
+
 //Migrate//
 $route['migrate'] = 'migrate/index';
 
