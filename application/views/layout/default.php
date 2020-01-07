@@ -333,7 +333,7 @@
                                 <ul class="notika-main-menu-dropdown">
                                     <li><a href="#">ใบแจ้งหนี้</a>
                                     </li>
-                                    <li><a href="#">มิเตอร์ไฟและน้ำ</a>
+                                    <li><a href="<?php echo base_url(); ?>meter/index">มิเตอร์ไฟและน้ำ</a>
                                     </li>
                                     <li><a href="<?php echo base_url(); ?>promise/index">รายการสัญญาเช่า</a>
                                     </li>

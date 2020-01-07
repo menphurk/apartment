@@ -103,6 +103,16 @@ $route['promise/show'] = 'promise/show/$1';
 $route['promise/update'] = 'promise/update/$1';
 $route['promise/delete'] = 'promise/delete/$1';
 
+//Meter//
+$route['meter'] = 'meter/index';
+$route['meter/(:num)'] = 'meter';
+$route['meter/create'] = 'meter/create';
+$route['meter/save'] = 'meter/save';
+$route['meter/edit'] = 'meter/edit/$1';
+$route['meter/show'] = 'meter/show/$1';
+$route['meter/update'] = 'meter/update/$1';
+$route['meter/delete'] = 'meter/delete/$1';
+
 //Migrate//
 $route['migrate'] = 'migrate/index';
 
