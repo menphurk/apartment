@@ -25,7 +25,7 @@
                             <td><?php echo $room[0]->num_people; ?></td>
                         </tr>
                     </table>
-                    <button class="btn btn-lightgreen lightgreen-icon-notika btn-reco-mg btn-button-mg waves-effect" onclick="window.location.href='<?php echo base_url();?>room/edit/<?php echo $room[0]->id;?>'"><i class="notika-icon notika-edit"></i> แก้ไข</button>
+                    <button class="btn btn-success notika-btn-success waves-effect" onclick="window.location.href='<?php echo base_url();?>room/edit/<?php echo $room[0]->id;?>'"><i class="notika-icon notika-edit"></i> แก้ไข</button>
                 </div>
             </div>
         </div>

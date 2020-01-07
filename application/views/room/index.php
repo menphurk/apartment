@@ -22,7 +22,7 @@
                                     } else if ($room->status == 1) {
                                         $status = "จองแล้ว";
                                     }
-                                    echo "<td><div class='box'>" . $room->code_place_room . $room->code_floor_room . "<br>" . $room->name . "<br>" . $status . "</div></td>";
+                                    echo "<td><div class='box'>" . $room->code_place_room . $room->code_floor_room . "<br>" . $room->name . "<br>" . $status . "<br><a href='".base_url(). "room/show/" . $room->id ."' class='btn btn-info primary-icon-notika btn-reco-mg btn-button-mg waves-effect'>ดู</a> <a href='".base_url(). "room/edit/" . $room->id ."' class='btn btn-success notika-btn-success waves-effect'>แก้ไข</a></div></td>";
                                 }
                                 echo "</tr>";
                             } else {
