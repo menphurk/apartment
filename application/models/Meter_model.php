@@ -23,7 +23,7 @@ class Meter_model extends CI_Model
 	{
 		$this->db->select("meters_rec.*, rooms.name as roomname");
 		$this->db->from($this->table);
-		$this->db->join('rooms', 'rooms.id = meters_rec.room_id');
+		$this->db->join('rooms', 'rooms.id = meters_rec.room_id', 'right');
 		$this->db->limit($limit, $start);
 		$query = $this->db->get();
 

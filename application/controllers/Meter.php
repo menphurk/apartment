@@ -82,23 +82,13 @@ class Meter extends CI_Controller
 			$this->template->load('default', 'contents', 'meter/create', $data);
 		} else {
 			$data = array(
-				'start_pro' => $this->input->post('start_pro'),
-				'end_pro' => $this->input->post('end_pro'),
+				'date_rec' => $this->input->post('date_rec'),
 				'room_id' => $this->input->post('room_id'),
-				'recognizance' => $this->input->post('recognizance'),
-				'title_id' => $this->input->post('title_id'),
-				'first_name' => $this->input->post('first_name'),
-				'last_name' => $this->input->post('last_name'),
-				'phone' => $this->input->post('phone'),
-				'address' => $this->input->post('address'),
-				'name_emergency' => $this->input->post('name_emergency'),
-				'phone_emergency' => $this->input->post('phone_emergency'),
-				'relationship_emergency' => $this->input->post('relationship_emergency'),
-				'timestamp_create' => date("Y-m-d H:i:s"),
-				'timestamp_update' => date("Y-m-d H:i:s")
+				'w_meter_now' => $this->input->post('w_meter_now'),
+				'e_meter_now' => $this->input->post('e_meter_now')
 			);
 
-			$this->Promise_model->insert($data);
+			$this->Meter_model->insert($data);
 			$this->session->set_flashdata(
 				array(
 					'flash_message' => '<div class="alert alert-success alert-mg-b-0" role="alert">เพิ่มข้อมูลเรียบร้อยแล้ว!</div>'
