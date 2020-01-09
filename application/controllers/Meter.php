@@ -49,7 +49,7 @@ class Meter extends CI_Controller
 	public function create()
 	{
 		$data = array();
-		$data['title'] = "ทำสัญญาเช่า";
+		$data['title'] = "จดมิเตอร์ไฟและน้ำ";
 		$data['rooms'] = $this->Room_model->get_list();
 
 		$this->check_auth('create');
@@ -60,21 +60,15 @@ class Meter extends CI_Controller
 
 	public function save()
 	{
-		$this->form_validation->set_rules('start_pro', 'วันที่เข้าอยู่', 'required');
-		$this->form_validation->set_rules('end_pro', 'วันที่สิ้นสุด', 'required');
+		$this->form_validation->set_rules('date_rec', 'วันที่จด', 'required');
+		$this->form_validation->set_rules('w_meter_now', 'มิเตอร์น้ำครั้งนี้', 'required');
+		$this->form_validation->set_rules('e_meter_now', 'มิเตอร์ไฟครั้งนี้', 'required');
 		$this->form_validation->set_rules('room_id', 'ห้อง', 'required');
-		$this->form_validation->set_rules('recognizance', 'เงินประกัน', 'required');
-		$this->form_validation->set_rules('title_id', 'คำนำหน้าชื่อ', 'required');
-		$this->form_validation->set_rules('first_name', 'ชื่อ', 'required');
-		$this->form_validation->set_rules('last_name', 'นามสกุล', 'required');
-		$this->form_validation->set_rules('phone', 'หมายเลขโทรศัพท์มือถือ', 'required');
-		$this->form_validation->set_rules('address', 'ที่อยู่ที่ติดต่อสะดวก', 'required');
 
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = array();
 			$data['title'] = "มิเตอร์ไฟและน้ำ";
-			$data['prefixs'] = $this->Title_model->get_list();
 			$data['rooms'] = $this->Room_model->get_list();
 			//print_r($data);
 			$this->check_auth('create');
