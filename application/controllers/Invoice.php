@@ -57,8 +57,8 @@ class Invoice extends CI_Controller
 		$mpdf = new \Mpdf\Mpdf();
 		$html = $this->load->view('invoice/export',$data,true);
 		$mpdf->WriteHTML($html);
-		$mpdf->Output(); // opens in browser
-		//$mpdf->Output('test.pdf','D'); // it downloads the file into the user system.
+		/*$mpdf->Output(); // opens in browser*/
+		$mpdf->Output('Invoice-'.$id.'.pdf','D'); // it downloads the file into the user system.
 
 	}
 
