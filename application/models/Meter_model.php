@@ -4,6 +4,7 @@
 class Meter_model extends CI_Model
 {
 	protected $table = 'meters_rec';
+	protected $table_invoice = 'invoice';
 
 	public function __construct()
 	{
@@ -46,9 +47,10 @@ class Meter_model extends CI_Model
 		return $data;
 	}
 
-	public function insert($data)
+	public function insert($data, $data_invoice)
 	{
 		if ($this->db->insert($this->table, $data)) {
+			$this->db->insert($this->table_invoice, $data_invoice);
 			return true;
 		}
 	}

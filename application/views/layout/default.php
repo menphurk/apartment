@@ -331,7 +331,7 @@
                             </div>
                             <div id="Finances" class="tab-pane notika-tab-menu-bg animated flipInX">
                                 <ul class="notika-main-menu-dropdown">
-                                    <li><a href="#">ใบแจ้งหนี้</a>
+                                    <li><a href="<?php echo base_url();?>invoice/index">ใบแจ้งหนี้</a>
                                     </li>
                                     <li><a href="<?php echo base_url(); ?>meter/index">มิเตอร์ไฟและน้ำ</a>
                                     </li>

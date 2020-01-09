@@ -79,10 +79,18 @@ class Meter extends CI_Controller
 				'date_rec' => $this->input->post('date_rec'),
 				'room_id' => $this->input->post('room_id'),
 				'w_meter_now' => $this->input->post('w_meter_now'),
-				'e_meter_now' => $this->input->post('e_meter_now')
+				'e_meter_now' => $this->input->post('e_meter_now'),
+				'timestamp_create' => date("Y-m-d H:i:s"),
+				'timestamp_update' => date("Y-m-d H:i:s")
 			);
 
-			$this->Meter_model->insert($data);
+			$data_invoice = array(
+				'room_id' => $this->input->post('room_id'),
+				'timestamp_create' => date("Y-m-d H:i:s"),
+				'timestamp_update' => date("Y-m-d H:i:s")
+			);
+
+			$this->Meter_model->insert($data,$data_invoice);
 			$this->session->set_flashdata(
 				array(
 					'flash_message' => '<div class="alert alert-success alert-mg-b-0" role="alert">เพิ่มข้อมูลเรียบร้อยแล้ว!</div>'
