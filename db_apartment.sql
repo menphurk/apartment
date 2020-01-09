@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2019 at 07:14 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Jan 09, 2020 at 07:01 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -31,6 +33,42 @@ CREATE TABLE `bank` (
   `name` varchar(191) NOT NULL,
   `bank_no` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dorm`
+--
+
+CREATE TABLE `dorm` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(45) NOT NULL,
+  `images` text NOT NULL,
+  `timestamp_create` timestamp NULL DEFAULT NULL,
+  `timestamp_update` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `room_id` varchar(255) NOT NULL,
+  `timestamp_create` timestamp NULL DEFAULT NULL,
+  `timestamp_update` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`id`, `room_id`, `timestamp_create`, `timestamp_update`) VALUES
+(1, '1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -60,6 +98,46 @@ CREATE TABLE `members` (
   `timestamp_create` timestamp NULL DEFAULT NULL,
   `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `meters_rec`
+--
+
+CREATE TABLE `meters_rec` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `date_rec` datetime(6) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `w_meter_bef` int(11) NOT NULL,
+  `w_meter_now` int(11) NOT NULL,
+  `e_meter_bef` int(11) NOT NULL,
+  `e_meter_now` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `meters_rec`
+--
+
+INSERT INTO `meters_rec` (`id`, `date_rec`, `room_id`, `w_meter_bef`, `w_meter_now`, `e_meter_bef`, `e_meter_now`) VALUES
+(1, '2019-12-26 00:00:00.000000', 1, 0, 20, 0, 33);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `version` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`version`) VALUES
+(3);
 
 -- --------------------------------------------------------
 
@@ -130,8 +208,8 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `name`, `type_room_id`, `price`, `code_place_room`, `code_floor_room`, `image`, `num_people`, `description`, `facilities`, `status`, `user_id`, `timestamp_create`, `timestamp_update`) VALUES
-(1, 'ทดสอบห้อง', 2, '1040', 'D', 'F', 'c7c56519ce5a5c123c4d11fa2f402270.png', 2, NULL, NULL, 0, NULL, NULL, NULL),
-(8, 'สรศักดิ์ เม่นเผือก', 2, '690', 'D', 'F', '194a0068fa48ae1664c23e660ada351e.png', 2, NULL, NULL, 0, NULL, NULL, NULL);
+(1, 'ทดสอบห้อง', 2, '1040', 'D', 'F', 'c7c56519ce5a5c123c4d11fa2f402270.png', 2, NULL, NULL, 0, 1, NULL, NULL),
+(8, 'สรศักดิ์ เม่นเผือก', 2, '690', 'D', 'F', '194a0068fa48ae1664c23e660ada351e.png', 2, NULL, NULL, 0, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -230,9 +308,27 @@ ALTER TABLE `bank`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `dorm`
+--
+ALTER TABLE `dorm`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `meters_rec`
+--
+ALTER TABLE `meters_rec`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -286,46 +382,74 @@ ALTER TABLE `users`
 --
 ALTER TABLE `bank`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `dorm`
+--
+ALTER TABLE `dorm`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `meters_rec`
+--
+ALTER TABLE `meters_rec`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `promise_renter`
 --
 ALTER TABLE `promise_renter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `repair_infrom`
 --
 ALTER TABLE `repair_infrom`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `status_room`
 --
 ALTER TABLE `status_room`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `title`
 --
 ALTER TABLE `title`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `type_room`
 --
 ALTER TABLE `type_room`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
