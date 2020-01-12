@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2020 at 07:01 PM
+-- Generation Time: Jan 12, 2020 at 04:33 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -63,13 +63,6 @@ CREATE TABLE `invoice` (
   `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `invoice`
---
-
-INSERT INTO `invoice` (`id`, `room_id`, `timestamp_create`, `timestamp_update`) VALUES
-(1, '1', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -83,6 +76,7 @@ CREATE TABLE `members` (
   `last_name` varchar(191) NOT NULL,
   `age` int(3) NOT NULL,
   `birthday` date NOT NULL,
+  `gender` varchar(191) NOT NULL,
   `idcard` int(15) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `email` varchar(191) DEFAULT NULL,
@@ -97,7 +91,7 @@ CREATE TABLE `members` (
   `image_profile` text NOT NULL,
   `timestamp_create` timestamp NULL DEFAULT NULL,
   `timestamp_update` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -112,15 +106,10 @@ CREATE TABLE `meters_rec` (
   `w_meter_bef` int(11) NOT NULL,
   `w_meter_now` int(11) NOT NULL,
   `e_meter_bef` int(11) NOT NULL,
-  `e_meter_now` int(11) NOT NULL
+  `e_meter_now` int(11) NOT NULL,
+  `timestamp_create` timestamp NULL DEFAULT NULL,
+  `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `meters_rec`
---
-
-INSERT INTO `meters_rec` (`id`, `date_rec`, `room_id`, `w_meter_bef`, `w_meter_now`, `e_meter_bef`, `e_meter_now`) VALUES
-(1, '2019-12-26 00:00:00.000000', 1, 0, 20, 0, 33);
 
 -- --------------------------------------------------------
 
@@ -149,16 +138,17 @@ CREATE TABLE `promise_renter` (
   `id` int(11) NOT NULL,
   `start_pro` date NOT NULL,
   `end_pro` date NOT NULL,
-  `rent` varchar(191) NOT NULL,
-  `recognizance` varchar(191) NOT NULL,
+  `rent` varchar(191) CHARACTER SET utf8 NOT NULL,
+  `recognizance` varchar(191) CHARACTER SET utf8 NOT NULL,
   `title_id` int(11) NOT NULL,
-  `first_name` varchar(191) NOT NULL,
-  `last_name` varchar(191) NOT NULL,
+  `first_name` varchar(191) CHARACTER SET utf8 NOT NULL,
+  `last_name` varchar(191) CHARACTER SET utf8 NOT NULL,
   `phone` int(20) NOT NULL,
-  `address` text NOT NULL,
-  `name_emergency` varchar(191) DEFAULT NULL,
+  `address` text CHARACTER SET utf8 NOT NULL,
+  `name_emergency` varchar(191) CHARACTER SET utf8 DEFAULT NULL,
   `phone_emergency` int(20) DEFAULT NULL,
-  `relationship_emergency` varchar(191) DEFAULT NULL,
+  `relationship_emergency` varchar(191) CHARACTER SET utf8 DEFAULT NULL,
+  `room_id` int(11) NOT NULL,
   `timestamp_create` timestamp NULL DEFAULT NULL,
   `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -387,25 +377,25 @@ ALTER TABLE `bank`
 -- AUTO_INCREMENT for table `dorm`
 --
 ALTER TABLE `dorm`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `meters_rec`
 --
 ALTER TABLE `meters_rec`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `promise_renter`

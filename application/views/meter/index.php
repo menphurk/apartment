@@ -29,8 +29,8 @@
 								echo "<td>" . $meter->id . "</td>";
 								echo "<td>" . $meter->date_rec . "</td>";
 								echo "<td>" . $meter->roomname . "</td>";
-								echo "<td>". $meter->e_meter_bef. "</td>";
-								echo "<td>". $meter->w_meter_bef. "</td>";
+								echo "<td>". $meter->e_meter_now. "</td>";
+								echo "<td>". $meter->w_meter_now. "</td>";
 								echo "<td>
                                             <button class='btn btn-primary button-icon-btn-rd btn-icon-notika waves-effect' data-toggle='modal' data-target='#AddMeter' data-meter-id=' . $meter->id . '><i class='notika-icon notika-edit'></i></button>
                                             <button class='btn btn-danger primary-icon-notika btn-reco-mg btn-button-mg waves-effect' onclick=window.location.href='" . base_url() . "meter/delete/" . $meter->id . "'><i class='notika-icon notika-trash'></i></button>

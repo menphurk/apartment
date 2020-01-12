@@ -196,4 +196,17 @@ class Member extends CI_Controller
         );
         redirect('member/index', 'refresh');
     }
+
+	public function delete(){
+
+		$id = $this->uri->segment('3');
+
+		$this->Member_model->delete($id);
+		$this->session->set_flashdata(
+			array(
+				'flash_message' => '<div class="alert alert-success alert-mg-b-0" role="alert">ลบข้อมูลเรียบร้อยแล้ว!</div>'
+			)
+		);
+		redirect('member/index');
+	}
 }

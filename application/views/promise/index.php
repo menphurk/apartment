@@ -10,6 +10,7 @@
                 echo $this->session->flashdata('flash_message');
                 ?>
                 <div class="bsc-tbl">
+					<button class="btn btn-primary button-icon-btn-rd btn-icon-notika waves-effect" onclick='window.location.href="<?php echo base_url();?>promise/create/"'>ทำสัญญาเช่า</button>
                     <table class="table table-sc-ex">
                         <thead>
                             <tr>

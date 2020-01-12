@@ -167,4 +167,17 @@ class Promise extends CI_Controller
         );
         redirect('promise/index', 'refresh');
     }
+
+	public function delete(){
+
+		$id = $this->uri->segment('3');
+
+		$this->Promise_model->delete($id);
+		$this->session->set_flashdata(
+			array(
+				'flash_message' => '<div class="alert alert-success alert-mg-b-0" role="alert">ลบข้อมูลเรียบร้อยแล้ว!</div>'
+			)
+		);
+		redirect('promise/index');
+	}
 }

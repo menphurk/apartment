@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <label>วันเดือนปีเกิด</label>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control input-sm" name="birthday" id="birthday" value="<?php echo set_value('birthday'); ?>" placeholder="วันเดือนปีเกิด">
+                                    <input type="date" class="form-control input-sm" name="birthday" id="birthday" value="<?php echo set_value('birthday'); ?>" placeholder="วันเดือนปีเกิด">
                                 </div>
                             </div>
                         </div>

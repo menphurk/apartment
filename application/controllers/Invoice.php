@@ -46,6 +46,19 @@ class Invoice extends CI_Controller
 		$this->template->load('default', 'contents', 'invoice/index', $data);
 	}
 
+	function show()
+	{
+		$id = $this->uri->segment('3');
+
+		$data = array();
+		$data['title'] = "ข้อมูลใบแจ้งหนี้";
+		$data['invoice'] = $this->Invoice_model->get_one_list($id);
+
+		$this->check_auth('show');
+		$this->template->set('title', 'ข้อมูลใบแจ้งหนี้');
+		$this->template->load('default', 'contents', 'invoice/show', $data);
+	}
+
 	function export()
 	{
 		$id = $this->uri->segment('3');

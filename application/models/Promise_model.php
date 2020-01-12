@@ -22,7 +22,7 @@ class Promise_model extends CI_Model
         $this->db->select("title.name as titlename, promise_renter.*, rooms.name as roomname");
         $this->db->from($this->table);
         $this->db->join('title', 'title.id = promise_renter.title_id');
-        $this->db->join('rooms', 'rooms.id = promise_renter.room_id');
+        $this->db->join('rooms', 'rooms.id = promise_renter.room_id', 'left');
         $this->db->limit($limit, $start);
         $query = $this->db->get();
 
@@ -37,8 +37,9 @@ class Promise_model extends CI_Model
 
     public function get_one_list($id)
     {
-        $this->db->select("title.name as titlename, promise_renter.*");
+        $this->db->select("title.name as titlename, promise_renter.*, rooms.name as roomname");
         $this->db->join('title', 'title.id = promise_renter.title_id');
+        $this->db->join('rooms', 'rooms.id = promise_renter.room_id');
         $query = $this->db->get_where($this->table, array("promise_renter.id" => $id));
         $data = $query->result();
 

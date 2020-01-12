@@ -113,7 +113,9 @@ $route['meter/show'] = 'meter/show/$1';
 $route['meter/update'] = 'meter/update/$1';
 $route['meter/delete'] = 'meter/delete/$1';
 
+//Invoice//
 $route['invoice'] = "invoice/index";
+$route['invoice/show'] = "invoice/show/$1";
 $route['invoice/export'] = 'invoice/export';
 
 //Migrate//
