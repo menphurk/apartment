@@ -24,7 +24,7 @@ class DashboardMember extends MY_Controller
 	public function index() {
 
 		$data = array();
-		$data["bills"] = $this->Bill_model->getInvoiceMember(1);
+		$data["bills"] = $this->Bill_model->getInvoiceMember($this->session->userdata( 'login_id' ));
 
 
 		$this->check_auth('dashboard/index');

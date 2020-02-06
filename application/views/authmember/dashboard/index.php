@@ -5,12 +5,12 @@
 
 
 				<button type="button" class="btn btn-danger">
-					ค้างชำระ <span class="badge badge-light">9</span>
+					ค้างชำระ
 					<span class="sr-only">ค้างชำระ</span>
 				</button>
 
 				<button type="button" class="btn btn-success">
-					ชำระแล้ว <span class="badge badge-light">9</span>
+					ชำระแล้ว
 					<span class="sr-only">ชำระแล้ว</span>
 				</button>
 
