@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2020 at 04:33 PM
+-- Generation Time: Feb 06, 2020 at 07:27 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -63,6 +63,13 @@ CREATE TABLE `invoice` (
   `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`id`, `room_id`, `timestamp_create`, `timestamp_update`) VALUES
+(1, '1', '2020-02-06 16:09:34', '2020-02-06 16:09:34');
+
 -- --------------------------------------------------------
 
 --
@@ -93,6 +100,13 @@ CREATE TABLE `members` (
   `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`id`, `title_id`, `first_name`, `last_name`, `age`, `birthday`, `gender`, `idcard`, `phone`, `email`, `address`, `name_workplace`, `address_workplace`, `phone_workplace`, `name_emergency`, `phone_emergency`, `username`, `password`, `image_profile`, `timestamp_create`, `timestamp_update`) VALUES
+(1, 1, 'สรศักดิ์', 'เม่นเผือก', 0, '2020-02-05', 'male', 2147483647, '0839506223', 'sorasak_456123@hotmail.com', '3 ซอยองค์การทรัพย์สิน\r\nต.เมืองสวรรคโลก', 'สรศักดิ์ เม่นเผือก', '', '', '', '', 'menphurk', 'e10adc3949ba59abbe56e057f20f883e', 'picture', '2020-02-06 14:41:51', '2020-02-06 14:41:51');
+
 -- --------------------------------------------------------
 
 --
@@ -107,9 +121,17 @@ CREATE TABLE `meters_rec` (
   `w_meter_now` int(11) NOT NULL,
   `e_meter_bef` int(11) NOT NULL,
   `e_meter_now` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
   `timestamp_create` timestamp NULL DEFAULT NULL,
   `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `meters_rec`
+--
+
+INSERT INTO `meters_rec` (`id`, `date_rec`, `room_id`, `w_meter_bef`, `w_meter_now`, `e_meter_bef`, `e_meter_now`, `status`, `timestamp_create`, `timestamp_update`) VALUES
+(1, '2020-02-06 00:00:00.000000', 1, 0, 20, 0, 11, 0, '2020-02-06 16:09:34', '2020-02-06 16:09:34');
 
 -- --------------------------------------------------------
 
@@ -140,18 +162,18 @@ CREATE TABLE `promise_renter` (
   `end_pro` date NOT NULL,
   `rent` varchar(191) CHARACTER SET utf8 NOT NULL,
   `recognizance` varchar(191) CHARACTER SET utf8 NOT NULL,
-  `title_id` int(11) NOT NULL,
-  `first_name` varchar(191) CHARACTER SET utf8 NOT NULL,
-  `last_name` varchar(191) CHARACTER SET utf8 NOT NULL,
-  `phone` int(20) NOT NULL,
-  `address` text CHARACTER SET utf8 NOT NULL,
-  `name_emergency` varchar(191) CHARACTER SET utf8 DEFAULT NULL,
-  `phone_emergency` int(20) DEFAULT NULL,
-  `relationship_emergency` varchar(191) CHARACTER SET utf8 DEFAULT NULL,
+  `member_id` int(11) NOT NULL,
   `room_id` int(11) NOT NULL,
   `timestamp_create` timestamp NULL DEFAULT NULL,
   `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `promise_renter`
+--
+
+INSERT INTO `promise_renter` (`id`, `start_pro`, `end_pro`, `rent`, `recognizance`, `member_id`, `room_id`, `timestamp_create`, `timestamp_update`) VALUES
+(1, '2020-02-06', '2020-02-29', '', '5000', 1, 1, '2020-02-06 16:00:03', '2020-02-06 16:13:00');
 
 -- --------------------------------------------------------
 
@@ -164,11 +186,18 @@ CREATE TABLE `repair_infrom` (
   `topic` varchar(191) NOT NULL,
   `description` text,
   `room_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
   `repair_date` date NOT NULL,
   `timestamp_create` timestamp NULL DEFAULT NULL,
   `timestamp_update` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `repair_infrom`
+--
+
+INSERT INTO `repair_infrom` (`id`, `topic`, `description`, `room_id`, `member_id`, `repair_date`, `timestamp_create`, `timestamp_update`) VALUES
+(1, 'test', 'ttt', 1, 1, '0000-00-00', '2020-02-06 18:12:27', '2020-02-06 18:21:53');
 
 -- --------------------------------------------------------
 
@@ -377,13 +406,13 @@ ALTER TABLE `bank`
 -- AUTO_INCREMENT for table `dorm`
 --
 ALTER TABLE `dorm`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `members`
@@ -395,19 +424,19 @@ ALTER TABLE `members`
 -- AUTO_INCREMENT for table `meters_rec`
 --
 ALTER TABLE `meters_rec`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `promise_renter`
 --
 ALTER TABLE `promise_renter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `repair_infrom`
 --
 ALTER TABLE `repair_infrom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `rooms`
