@@ -33,7 +33,7 @@
       </button>
       <a class="navbar-brand text-brand" href="index.html">Apart<span class="color-b">Ment</span></a>
       <button type="button" class="btn btn-b-n d-md-none" data-toggle="modal" data-target="#LoginMember" aria-expanded="false">
-        จองห้อง
+		เข้าสู่ระบบ
       </button>
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
@@ -52,7 +52,7 @@
         </ul>
       </div>
       <button type="button" class="btn btn-b-n d-none d-md-block" data-toggle="modal" data-target="#LoginMember">
-        จองห้อง
+		เข้าสู่ระบบ
       </button>
 
     </div>
