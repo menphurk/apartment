@@ -117,6 +117,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-example-int mg-b-15 col-lg-6">
                             <div class="form-group">
                                 <label>เบอร์โทรสถานที่ทำงาน</label>
@@ -125,7 +126,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="form-example-int mg-b-15 col-lg-6">
                             <div class="form-group">
                                 <label for="">รูปภาพของผู้ใช้</label>
@@ -134,6 +134,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="basic-tb-hd mg-b-15 col-lg-12">
                             <h2>บุคคลที่สามารถติดต่อได้เวลาฉุกเฉิน</h2>
                         </div>
@@ -153,6 +154,28 @@
                                 </div>
                             </div>
                         </div>
+
+						<div class="basic-tb-hd mg-b-15 col-lg-12">
+							<h2>บัญชึผู้ใช้งาน</h2>
+						</div>
+
+						<div class="form-example-int mg-b-15 col-lg-6">
+							<div class="form-group">
+								<label>ชื่อผู้ใช้งาน</label>
+								<div class="nk-int-st">
+									<input type="text" class="form-control input-sm" name="username" id="username" placeholder="ชื่อผู้ใช้งาน">
+								</div>
+							</div>
+						</div>
+						<div class="form-example-int mg-b-15 col-lg-6">
+							<div class="form-group">
+								<label for="">รหัสผ่าน</label>
+								<div class="nk-int-st">
+									<input type="password" class="form-control input-sm" name="password" id="password" placeholder="รหัสผ่าน">
+								</div>
+							</div>
+						</div>
+
                         <div class="form-example-int mg-t-15 col-lg-6">
                             <button type="submit" class="btn btn-success notika-btn-success">บันทึก</button>
                         </div>

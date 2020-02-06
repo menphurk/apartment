@@ -12,6 +12,7 @@ class Promise extends CI_Controller
         $this->load->model('Title_model');
         $this->load->model('Promise_model');
         $this->load->model('Room_model');
+        $this->load->model('Member_model');
 
         $this->load->library("pagination");
     }
@@ -51,7 +52,7 @@ class Promise extends CI_Controller
     {
         $data = array();
         $data['title'] = "ทำสัญญาเช่า";
-        $data['prefixs'] = $this->Title_model->get_list();
+        $data['members'] = $this->Member_model->get_list();
         $data['rooms'] = $this->Room_model->get_list();
 
         $this->check_auth('create');
@@ -66,17 +67,13 @@ class Promise extends CI_Controller
         $this->form_validation->set_rules('end_pro', 'วันที่สิ้นสุด', 'required');
         $this->form_validation->set_rules('room_id', 'ห้อง', 'required');
         $this->form_validation->set_rules('recognizance', 'เงินประกัน', 'required');
-        $this->form_validation->set_rules('title_id', 'คำนำหน้าชื่อ', 'required');
-        $this->form_validation->set_rules('first_name', 'ชื่อ', 'required');
-        $this->form_validation->set_rules('last_name', 'นามสกุล', 'required');
-        $this->form_validation->set_rules('phone', 'หมายเลขโทรศัพท์มือถือ', 'required');
-        $this->form_validation->set_rules('address', 'ที่อยู่ที่ติดต่อสะดวก', 'required');
+		$this->form_validation->set_rules('member_id', 'ผู้เช่า', 'required');
 
 
         if ($this->form_validation->run() == FALSE) {
             $data = array();
             $data['title'] = "ทำสัญญาเช่า";
-            $data['prefixs'] = $this->Title_model->get_list();
+			$data['members'] = $this->Member_model->get_list();
             $data['rooms'] = $this->Room_model->get_list();
             //print_r($data);
             $this->check_auth('create');
@@ -88,14 +85,7 @@ class Promise extends CI_Controller
                 'end_pro' => $this->input->post('end_pro'),
                 'room_id' => $this->input->post('room_id'),
                 'recognizance' => $this->input->post('recognizance'),
-                'title_id' => $this->input->post('title_id'),
-                'first_name' => $this->input->post('first_name'),
-                'last_name' => $this->input->post('last_name'),
-                'phone' => $this->input->post('phone'),
-                'address' => $this->input->post('address'),
-                'name_emergency' => $this->input->post('name_emergency'),
-                'phone_emergency' => $this->input->post('phone_emergency'),
-                'relationship_emergency' => $this->input->post('relationship_emergency'),
+                'member_id' => $this->input->post('member_id'),
                 'timestamp_create' => date("Y-m-d H:i:s"),
                 'timestamp_update' => date("Y-m-d H:i:s")
             );
@@ -131,6 +121,7 @@ class Promise extends CI_Controller
         $data = array();
         $data['title'] = "แก้ไขสัญญาเช่า";
         $data['prefixs'] = $this->Title_model->get_list();
+		$data['members'] = $this->Member_model->get_list();
         $data['promise'] = $this->Promise_model->get_one_list($id);
         $data['rooms'] = $this->Room_model->get_list();
 
@@ -146,14 +137,7 @@ class Promise extends CI_Controller
             'end_pro' => $this->input->post('end_pro'),
             'room_id' => $this->input->post('room_id'),
             'recognizance' => $this->input->post('recognizance'),
-            'title_id' => $this->input->post('title_id'),
-            'first_name' => $this->input->post('first_name'),
-            'last_name' => $this->input->post('last_name'),
-            'phone' => $this->input->post('phone'),
-            'address' => $this->input->post('address'),
-            'name_emergency' => $this->input->post('name_emergency'),
-            'phone_emergency' => $this->input->post('phone_emergency'),
-            'relationship_emergency' => $this->input->post('relationship_emergency'),
+			'member_id' => $this->input->post('member_id'),
             'timestamp_update' => date("Y-m-d H:i:s")
         );
 

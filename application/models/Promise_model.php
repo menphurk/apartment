@@ -19,9 +19,10 @@ class Promise_model extends CI_Model
 
     public function get_paginate_list($limit, $start)
     {
-        $this->db->select("title.name as titlename, promise_renter.*, rooms.name as roomname");
+        $this->db->select("title.name as titlename, members.first_name as first_name, members.last_name as last_name, promise_renter.*, rooms.name as roomname");
         $this->db->from($this->table);
-        $this->db->join('title', 'title.id = promise_renter.title_id');
+        $this->db->join('members', 'members.id = promise_renter.member_id');
+        $this->db->join('title', 'title.id = members.title_id');
         $this->db->join('rooms', 'rooms.id = promise_renter.room_id', 'left');
         $this->db->limit($limit, $start);
         $query = $this->db->get();
@@ -37,8 +38,9 @@ class Promise_model extends CI_Model
 
     public function get_one_list($id)
     {
-        $this->db->select("title.name as titlename, promise_renter.*, rooms.name as roomname");
-        $this->db->join('title', 'title.id = promise_renter.title_id');
+        $this->db->select("title.name as titlename,members.*, promise_renter.*, rooms.name as roomname");
+        $this->db->join('members', 'members.id = promise_renter.member_id');
+		$this->db->join('title', 'title.id = members.title_id');
         $this->db->join('rooms', 'rooms.id = promise_renter.room_id');
         $query = $this->db->get_where($this->table, array("promise_renter.id" => $id));
         $data = $query->result();

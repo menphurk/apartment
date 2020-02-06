@@ -66,6 +66,8 @@ class Member extends CI_Controller
         $this->form_validation->set_rules('birthday', 'วันเดือนปีเกิด', 'required');
         $this->form_validation->set_rules('idcard', 'หมายเลขบัตรประชาชน', 'required');
         $this->form_validation->set_rules('phone', 'หมายเลขโทรศัพท์มือถือ', 'required');
+		$this->form_validation->set_rules('username', 'ชื่อผู้ใช้งาน', 'required');
+		$this->form_validation->set_rules('password', 'รหัสผ่าน', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data = array();
@@ -107,6 +109,8 @@ class Member extends CI_Controller
                 'phone_workplace' => $this->input->post('phone_workplace'),
                 'name_emergency' => $this->input->post('name_emergency'),
                 'phone_emergency' => $this->input->post('phone_emergency'),
+                'username' => $this->input->post('username'),
+                'password' => md5($this->input->post('password')),
                 'image_profile' => $file_name,
                 'timestamp_create' => date("Y-m-d H:i:s"),
                 'timestamp_update' => date("Y-m-d H:i:s")
@@ -182,6 +186,8 @@ class Member extends CI_Controller
             'phone_workplace' => $this->input->post('phone_workplace'),
             'name_emergency' => $this->input->post('name_emergency'),
             'phone_emergency' => $this->input->post('phone_emergency'),
+			'username' => $this->input->post('username'),
+			'password' => md5($this->input->post('password')),
             'image_profile' => $file_name,
             'timestamp_update' => date("Y-m-d H:i:s")
         );

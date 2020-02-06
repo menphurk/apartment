@@ -121,5 +121,23 @@ $route['invoice/export'] = 'invoice/export';
 //Migrate//
 $route['migrate'] = 'migrate/index';
 
+//-------------------------------------------------Member----------------------------------------------------------------//
+
+//Login//
+$route['authencation'] = 'loginmember/authencation';
+$route['logoutauth'] = 'loginmember/logout';
+
+$route['dashboardmember'] = 'dashboardmember/index';
+
+//Repair//
+$route['repair'] = 'repair/index';
+$route['repair/(:num)'] = 'repair';
+$route['repair/create'] = 'repair/create';
+$route['repair/save'] = 'repair/save';
+$route['repair/edit'] = 'repair/edit/$1';
+$route['repair/show'] = 'repair/show/$1';
+$route['repair/update'] = 'repair/update/$1';
+$route['repair/delete'] = 'repair/delete/$1';
+
 $route['404_override'] = 'errors/index';
 $route['translate_uri_dashes'] = FALSE;

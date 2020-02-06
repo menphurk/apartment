@@ -50,10 +50,6 @@
 							<td>เบอร์โทรศัพท์ติดต่อ</td>
 							<td><?php echo $promise[0]->phone_emergency; ?></td>
 						</tr>
-						<tr>
-							<td>ความสัมพันธ์</td>
-							<td><?php echo $promise[0]->relationship_emergency; ?></td>
-						</tr>
 					</table>
 					<button class="btn btn-lightgreen lightgreen-icon-notika btn-reco-mg btn-button-mg waves-effect" onclick="window.location.href='<?php echo base_url(); ?>promise/edit/<?php echo $promise[0]->id; ?>'"><i class="notika-icon notika-edit"></i> แก้ไข</button>
 				</div>

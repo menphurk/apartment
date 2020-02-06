@@ -12,6 +12,45 @@ class Member_model extends CI_Model
 		$this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert"><ul><li>', '</li></ul></div>');
 	}
 
+	public function fetch_login($username,$password)
+	{
+		$this->db->where('username',$username);
+		$this->db->where('password',$this->salt_pass($password));
+		$query = $this->db->get($this->table);
+		return $query->row();
+	}
+
+	public function record_count($username,$password)
+	{
+		$this->db->where('username',$username);
+		$this->db->where('password',$this->salt_pass($password));
+		return $this->db->count_all_results($this->table);
+	}
+
+	public function salt_pass($password)
+	{
+		return md5($password);
+	}
+
+	public function read_user($id)
+	{
+		$this->db->where('id',$id);
+		$query = $this->db->get($this->table);
+		if($query->num_rows() > 0){
+			$data = $query->row();
+			return $data;
+		}
+		return FALSE;
+	}
+
+	public function entry_user($id)
+	{
+		$data = array('admin_name' => $this->input->post('admin_name'));
+		$this->db->update($this->table, $data, array('id'=> $id));
+	}
+
+	//ListMember//
+
 	public function get_count()
 	{
 		return $this->db->count_all($this->table);
@@ -32,6 +71,11 @@ class Member_model extends CI_Model
 			return $data;
 		}
 		return false;
+	}
+
+	public function get_list(){
+		$query = $this->db->get($this->table);
+		return $query->result();
 	}
 
 	public function get_one_list($id)
