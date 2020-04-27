@@ -226,10 +226,7 @@
 	function RegisterAjax(){
 		var register_username = $("#register_username").val();
 		var register_password = $("#register_password").val();
-		console.log(register_username)
-		console.log(register_password)
 		var register_password_confirmation = $("#register_password_confirmation").val();
-		console.log(register_password_confirmation)
 		if (register_password != register_password_confirmation){
 			alert("รหัสผ่านไม่ตรงกัน กรุณาลองใหม่อีกครั้ง");
 			return false;
