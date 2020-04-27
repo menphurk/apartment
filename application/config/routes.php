@@ -55,7 +55,8 @@ $route['room'] = 'home/room';
 $route['single_room/(:num)'] = 'home/single_room/$1';
 $route['facilities'] = 'home/facilities';
 $route['contact'] = 'home/contact';
-//Login//
+//Login-Register//
+$route['register'] = 'register/saveRegister';
 $route['login'] = 'login/index';
 $route['check_login'] = 'login/check_login';
 $route['logout'] = 'login/logout';

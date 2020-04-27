@@ -51,7 +51,7 @@
           </li>
         </ul>
       </div>
-      <button type="button" class="btn btn-b-n d-none d-md-block" data-toggle="modal" data-target="#LoginMember">
+      <button type="button" class="btn btn-b-n d-none d-md-block" data-toggle="modal" data-target="#LoginMember" onclick="javascript: showLoginForm();">
 		เข้าสู่ระบบ
       </button>
 
@@ -60,32 +60,60 @@
   <!--/ Nav End /-->
   <?php echo $contents; ?>
 <!-- Modal -->
-<div class="modal fade" id="LoginMember" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">เข้าสู่ระบบ</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="<?php echo base_url();?>authencation" method="post">
-					<div class="form-group">
-						<label for="exampleInputEmail1">ชื่อผู้ใช้งาน</label>
-						<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+	<div class="modal fade" id="LoginMember" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">เข้าสู่ระบบ</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="box">
+						<div class="form loginBox">
+						<form action="<?php echo base_url();?>authencation" method="post">
+							<div class="form-group">
+								<label for="exampleInputEmail1">ชื่อผู้ใช้งาน</label>
+								<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">รหัสผ่าน</label>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+							</div>
+							<button type="submit" class="btn btn-b-n">เข้าสู่ระบบ</button>
+							<a href="javascript: showRegisterForm();" class="btn btn-link">ลงทะเบียน</a>
+						</form>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">รหัสผ่าน</label>
-						<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+					<div class="box">
+						<div class="content registerBox" style="display:none;">
+							<div class="form">
+								<form method="post">
+									<div class="form-group">
+										<label for="exampleInputEmail1">ชื่อผู้ใช้งาน</label>
+										<input type="text" class="form-control" id="register_username" name="register_username" placeholder="Username" required>
+									</div>
+									<div class="form-group">
+										<label for="exampleInputPassword1">รหัสผ่าน</label>
+										<input type="password" class="form-control" id="register_password" name="register_password" placeholder="Password" required>
+									</div>
+									<div class="form-group">
+										<label for="exampleInputPassword1">ยืนยันรหัสผ่าน</label>
+										<input type="password" class="form-control" id="register_password_confirmation" name="register_password_confirmation" placeholder="Repeat Password" required>
+									</div>
+									<button type="button" class="btn btn-b-n" onclick="RegisterAjax()">ลงทะเบียน</button>
+								</form><br>
+								<center><span>เป็นสมาชิกอยู่แล้ว</span>
+								<a href="javascript: showLoginForm();" class="btn btn-link">เข้าสู่ระบบ</a>
+								</center>
+							</div>
+						</div>
 					</div>
-					<button type="submit" class="btn btn-b-n">เข้าสู่ระบบ</button>
-					<button type="submit" class="btn btn-link">ลงทะเบียน</button>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
     <!--/ footer Star /-->
     <section class="section-footer">
     <div class="container">
@@ -182,15 +210,45 @@
   <div id="preloader"></div>
 
   <!-- JavaScript Libraries -->
-  <script src="<?php echo base_url();?>/assets/frontend/lib/jquery/jquery.min.js"></script>
-  <script src="<?php echo base_url();?>/assets/frontend/lib/jquery/jquery-migrate.min.js"></script>
-  <script src="<?php echo base_url();?>/assets/frontend/lib/popper/popper.min.js"></script>
-  <script src="<?php echo base_url();?>/assets/frontend/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="<?php echo base_url();?>/assets/frontend/lib/easing/easing.min.js"></script>
-  <script src="<?php echo base_url();?>/assets/frontend/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="<?php echo base_url();?>/assets/frontend/lib/scrollreveal/scrollreveal.min.js"></script>
+  <script src="<?php echo base_url();?>assets/frontend/lib/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url();?>assets/frontend/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="<?php echo base_url();?>assets/frontend/lib/popper/popper.min.js"></script>
+  <script src="<?php echo base_url();?>assets/frontend/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="<?php echo base_url();?>assets/frontend/lib/easing/easing.min.js"></script>
+  <script src="<?php echo base_url();?>assets/frontend/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="<?php echo base_url();?>assets/frontend/lib/scrollreveal/scrollreveal.min.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="<?php echo base_url();?>/assets/frontend/js/main.js"></script>
+  <script src="<?php echo base_url();?>assets/frontend/js/main.js"></script>
+	<!-- LoginRegister PopUp -->
+	<script src="<?php echo base_url();?>assets/js/login-registerpopup.js"></script>
+<script>
+	function RegisterAjax(){
+		var register_username = $("#register_username").val();
+		var register_password = $("#register_password").val();
+		console.log(register_username)
+		console.log(register_password)
+		var register_password_confirmation = $("#register_password_confirmation").val();
+		console.log(register_password_confirmation)
+		if (register_password != register_password_confirmation){
+			alert("รหัสผ่านไม่ตรงกัน กรุณาลองใหม่อีกครั้ง");
+			return false;
+		}else{
+			$.ajax({
+				type: "POST",
+				url: "<?php echo base_url(); ?>register",
+				data: {
+					username:register_username,
+					password:register_password
+				},
+				success: function() {
+					alert("สมัครสมาชิกเรียบร้อยแล้ว")
+					openLoginModal();
+				}
+			})
+			return true;
+		}
+	}
+</script>
 </body>
 </html>
