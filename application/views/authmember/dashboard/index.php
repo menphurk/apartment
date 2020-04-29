@@ -34,6 +34,11 @@
 
 				?>
 
+				<?php
+					if (empty($bills)){
+						echo "<center><h2>ไม่มีข้อมูลบิลค้างชำระ</h2></center>";
+					}else{
+				?>
 				<div class="card">
 					<h5 class="card-header text-white bg-<?php if($bills[0]->status == 0){ echo 'danger'; }else{ echo 'success'; } ?> mb-3">บิลค่าใช้จ่าย <?php echo DateThai($bills[0]->date_rec); ?></h5>
 					<div class="card-body">
@@ -45,6 +50,7 @@
 						</p>
 					</div>
 				</div>
+				<?php } ?>
 
 			</div>
 		</div>
