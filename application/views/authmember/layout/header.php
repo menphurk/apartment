@@ -17,10 +17,10 @@
 		<div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link <?php echo (current_url()==base_url('/')) ? 'active':''?>" href="<?php echo base_url();?>repair" style="color: white">แจ้งซ่อมบำรุง</a>
+					<a class="nav-link <?php echo (current_url()==base_url('repair')) ? 'active':''?>" href="<?php echo base_url();?>repair" style="color: white">แจ้งซ่อมบำรุง</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link <?php echo (current_url()==base_url('room')) ? 'active':''?>" href="<?php echo base_url();?>" style="color: white">บิลค่าใช้จ่าย</a>
+					<a class="nav-link <?php echo (current_url()==base_url('dashboardmember')) ? 'active':''?>" href="<?php echo base_url();?>dashboardmember" style="color: white">บิลค่าใช้จ่าย</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link <?php echo (current_url()==base_url('facilities')) ? 'active':''?>" href="#" style="color: white">ข้อมูลห้องพัก</a>
@@ -37,6 +37,7 @@
 				?>
 			</a>
 			<div class="dropdown-menu">
+				<a class="dropdown-item" href="<?php echo base_url();?>profile/<?php echo $this->session->userdata( 'login_id' );?>">แก้ไขข้อมูลส่วนตัว</a>
 				<a class="dropdown-item" href="<?php echo base_url();?>logoutauth">ออกจากระบบ</a>
 			</div>
 		</li>

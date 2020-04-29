@@ -129,6 +129,8 @@ $route['authencation'] = 'loginmember/authencation';
 $route['logoutauth'] = 'loginmember/logout';
 
 $route['dashboardmember'] = 'dashboardmember/index';
+$route['profile/(:num)'] = 'dashboardmember/profile/$1';
+$route['updateprofile'] = 'dashboardmember/updateprofile/$1';
 
 //Repair//
 $route['repair'] = 'repair/index';

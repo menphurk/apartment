@@ -31,7 +31,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html">Apart<span class="color-b">Ment</span></a>
+      <a class="navbar-brand text-brand" href="#">Apart<span class="color-b">Ment</span></a>
       <button type="button" class="btn btn-b-n d-md-none" data-toggle="modal" data-target="#LoginMember" aria-expanded="false">
 		เข้าสู่ระบบ
       </button>

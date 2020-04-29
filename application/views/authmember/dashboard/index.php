@@ -3,6 +3,9 @@
 		<div class="row">
 			<div class="col-md-12">
 
+				<?php
+				echo $this->session->flashdata('flash_message');
+				?>
 
 				<button type="button" class="btn btn-danger">
 					ค้างชำระ
